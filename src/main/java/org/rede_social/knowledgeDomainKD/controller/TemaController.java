@@ -2,6 +2,7 @@ package org.rede_social.knowledgeDomainKD.controller;
 
 import java.util.List;
 
+import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.rede_social.knowledgeDomainKD.model.Tema;
 import org.rede_social.knowledgeDomainKD.repository.TemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,11 @@ public class TemaController {
 		return temaRepository.findById(id).map(resp -> ResponseEntity.ok(resp))
 				.orElse(ResponseEntity.notFound().build());
 
+	}
+	
+	@GetMapping("/nome/{nomeTema}")
+	public ResponseEntity<List<Tema>> GetByNome(@PathVariable String nomeTema){
+		return ResponseEntity.status(200).body(temaRepository.findAllByNomeTemaContainingIgnoreCase(nomeTema));
 	}
 
 	@DeleteMapping(value = "/{id}")
