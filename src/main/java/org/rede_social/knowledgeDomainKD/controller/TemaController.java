@@ -2,7 +2,6 @@ package org.rede_social.knowledgeDomainKD.controller;
 
 import java.util.List;
 
-import org.hibernate.validator.constraints.ParameterScriptAssert;
 import org.rede_social.knowledgeDomainKD.model.Tema;
 import org.rede_social.knowledgeDomainKD.repository.TemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
