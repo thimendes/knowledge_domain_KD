@@ -22,6 +22,8 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure (AuthenticationManagerBuilder auth) throws Exception{
 		auth.inMemoryAuthentication()
 		.withUser("admin").password(passwordEncoder().encode("admin")).authorities("ROLE_ADMIN");
+
+		auth.userDetailsService(service);
 	}
 	
 	@Bean
@@ -32,6 +34,7 @@ public class BasicSecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.authorizeRequests()
+		.antMatchers("/**").permitAll()
 		.antMatchers(HttpMethod.POST, "/api/v1/usuario/login").permitAll()
 		.antMatchers(HttpMethod.POST, "/api/v1/usuario/novo").permitAll()
 		.anyRequest().authenticated()
