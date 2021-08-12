@@ -35,7 +35,7 @@ public class SwaggerConfig {
 
 	private static Contact contact() {
 		return new Contact(
-				"Ana Patricia da Silva" + "\nJoão Junior" + "\nMayara" + "\nRhoger Miranda" + "\nThiago Mendes",
+				"Grupo 3 - Knowledge Domain_KD", 
 				"https://github.com/MayaraSGS/knowledge_domain_KD", "Projeto Integrador");
 	}
 
